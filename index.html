@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Resposive Size for the website  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Dawning of a New Day' rel='stylesheet'>
+
+  <!-- Refer to the JS file -->
+  <script type="text/javascript" src="indexJS.js"> </script>
+
+  <!-- Refer to the jQuery Library -->
+  <script type="text/javascript" src="jquery-1.8.3.js"></script>
+
+  <!-- Page's title -->
+  <link rel="icon" type="image/gif/png" href="logo/logo_bold.png">
+  <title>Incognito Studios</title>
+</head>
+<body>
+
+  <!-- Navbar (middle) -->
+  <nav>
+
+    <!-- Site's Logo (left) -->
+    <div id="site_logo">
+      <a href="index.html"><img src="logo/logo_bold.png" style="width: 90px; height: 90px;" alt="Site's Logo"></a>
+    </div>
+
+    <!-- at small screen: topnav will change to sidenav -->
+    <ul id="navbar" class="topnav">
+
+      <li><a href="javascript:void(0)" id="closeIcon" class="closebtn" onclick="closeNav()">&times</a></li>
+
+      <div class="drop_down">
+        <!-- I removed Machinima's link -->
+        <li><a class="drop_btn">Machinima</a>
+          <div class="drop_down-content">
+            <a href="html/movies.html">Movies</a>
+            <a href="html/tvseries.html">TV Series</a>
+          </div>
+        </li>
+      </div>
+
+      <div class="drop_down">
+        <!-- I removed Album's link -->
+        <li><a class="drop_btn"> Album</a>
+          <div class="drop_down-content">
+            <a href="html/photos.html">Photos</a>
+            <a href="html/videos.html">Videos</a>
+          </div>
+        </li>
+      </div>
+
+      <li><a href="html/cast_Calling.html"> Cast Calling</a></li>
+      <li><a href="html/tutorials.html"> Tutorials  </a></li>
+      <li><a id="latest" href="html/about_Us.html"> About Us</a></li>
+      <!-- <li><i class="fa fa-search" id="search"></i></li> -->
+    </ul>
+
+    <!-- Side Menu icon -->
+    <ul>
+      <li><a href="javascript:void(0)" id="sideMenuIcon" class="sideMenu-Icon" onclick="openNav()">&#9776;</a></li>
+    </ul>
+  </nav>
+
+  <header>
+
+  </header>
+
+  <article>
+    <div class="img_show_case">
+    </div>
+
+    <div class="vip_links">
+
+      <div class="upcomming">
+      </div>
+
+      <div class="announcement">
+      </div>
+
+      <div class="latest">
+      </div>
+
+      <div class="castCalling">
+      </div>
+    </div>
+  </article>
+
+  <footer>
+
+    <!-- <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> -->
+
+    <div class="social_links">
+      <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play" style="font-size:25px;color:#ff0000"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-square" style="font-size:25px;color:#3b5998"></i></a>
+      <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter" style="font-size:25px;color:#1da1f2"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram" style="font-size:25px;color:#c32aa3"></i></a>
+    </div>
+
+    <div id="copyright">
+      <h5 style="font-weight: normal;">© 2018 Incognito Studios</h5>
+      <h6 style="font-weight: lighter;">All Rights Reserved</h6>
+    </div>
+    <!-- <h6>Developped by: <span style="font-family: 'Dawning of a New Day'">Lina Walaa</span></h6> -->
+  </footer>
+  <script>
+
+  // Adjust navbar according to the viewport automaically
+  $(window).resize( function () {
+    var viewportWidth = $(window).width();
+    if (viewportWidth <= 1100) {
+      $("#navbar").removeClass("topnav").addClass("sidenav");
+    }else{
+      $("#navbar").removeClass("sidenav").addClass("topnav");
+      $("#sideMenuIcon").removeClass("sideMenu-Icon");
+    }
+  });
+  </script>
+  <script>
+  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+  /* for toogling between showing/hidding
+  the dropdownContent in the sidenav when clicking on
+  drop_btn that has a plus sign/minus*/
+  var dropdown = document.getElementsByClassName("drop_btn");
+  var i;
+
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    });
+  }
+  </script>
+
+</body>
+</html>
