@@ -262,6 +262,16 @@ nav .sidenav .active:after {
   } */
 }
 
+@media screen and (min-width:1101px) {
+  .topnav {
+    display: inline-block;
+  }
+
+  nav .sideMenu-Icon {
+    display: none;
+  }
+}
+
 /* /////////////////////////////////////////////////// */
 
 header {
@@ -287,6 +297,7 @@ footer {
   margin: 0;
   clear: both;
   overflow: auto;
+  z-index: -1;
 }
 
 .social_links {

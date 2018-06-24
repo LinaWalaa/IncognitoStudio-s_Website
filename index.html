@@ -110,38 +110,46 @@
     </div>
     <!-- <h6>Developped by: <span style="font-family: 'Dawning of a New Day'">Lina Walaa</span></h6> -->
   </footer>
-  <script>
 
+  <script>
   // Adjust navbar according to the viewport automaically
-  $(window).resize( function () {
-    var viewportWidth = $(window).width();
-    if (viewportWidth <= 1100) {
-      $("#navbar").removeClass("topnav").addClass("sidenav");
-    }else{
-      $("#navbar").removeClass("sidenav").addClass("topnav");
+  /*
+  document ready function used to prevent conflict with other javascript libraries
+  that use the $ parameter
+  */
+  jQuery(document).ready(function($){
+    change_ViewPort();
+    $(window).on('resize', change_ViewPort());
+  });
+
+  function change_ViewPort(){
+    if($(window).width() <= 1100){
+      $("#navbar").removeClass("topnav");
+      $("#navbar").addClass("sidenav");
+      $("#sideMenuIcon").addClass("sideMenu-Icon");
+    }
+    else{
+      $("#navbar").removeClass("sidenav");
+      $("#navbar").addClass("topnav");
       $("#sideMenuIcon").removeClass("sideMenu-Icon");
     }
   });
+
+
+  // $(window).resize( function () {
+  //   var viewportWidth = $(window).width();
+  //   if (viewportWidth <= 1100) {
+  //     $("#navbar").removeClass("topnav").addClass("sidenav");
+  //     $("#sideMenuIcon").addClass("sideMenu-Icon");
+  //   }else{
+  //     $("#navbar").removeClass("sidenav").addClass("topnav");
+  //     $("#sideMenuIcon").removeClass("sideMenu-Icon");
+  //   }
+  // });
+
   </script>
   <script>
-  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-  /* for toogling between showing/hidding
-  the dropdownContent in the sidenav when clicking on
-  drop_btn that has a plus sign/minus*/
-  var dropdown = document.getElementsByClassName("drop_btn");
-  var i;
-
-  for (i = 0; i < dropdown.length; i++) {
-    dropdown[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var dropdownContent = this.nextElementSibling;
-      if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-      } else {
-        dropdownContent.style.display = "block";
-      }
-    });
-  }
+  toggle_Dropdown();
   </script>
 
 </body>

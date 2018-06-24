@@ -1,6 +1,10 @@
 function openNav() {
   var x = document.getElementById("navbar");
 
+  if (x.style.display === "none"){
+    x.style.display = "block";
+  }
+
   if (x.classList.contains("topnav")) {
     x.classList.remove("topnav");
     x.classList.add("sidenav");
@@ -14,13 +18,18 @@ function openNav() {
 function closeNav() {
   var x = document.getElementById("navbar");
 
-  if (x.classList.contains("sidenav")) {
-    x.classList.remove("sidenav");
-    x.classList.add("topnav");
-  }
+  // if (x.classList.contains("sidenav")) {
+  //   x.classList.remove("sidenav");
+  //   x.classList.add("topnav");
+  // }
 
-  x.style.width = "0";
+  // x.style.width = "0";
+
+  //reomve navbar entirely and then add it when I press on th sideMenuIcon again
+  x.style.display = "none";
+
   document.getElementById("sideMenuIcon").style.display = "block";
+
 }
 
 // automatic slideshow
@@ -44,18 +53,20 @@ function showSlides() {
 
 // not referenced by a function so I have to add it in the html file itself
 
-// /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-// var dropdown = document.getElementsByClassName("drop_btn");
-// var i;
-//
-// for (i = 0; i < dropdown.length; i++) {
-//   dropdown[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     var dropdownContent = this.nextElementSibling;
-//     if (dropdownContent.style.display === "block") {
-//       dropdownContent.style.display = "none";
-//     } else {
-//       dropdownContent.style.display = "block";
-//     }
-//   });
-// }
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+function toggle_Dropdown(){
+  var dropdown = document.getElementsByClassName("drop_btn");
+  var i;
+
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    });
+  }
+}
