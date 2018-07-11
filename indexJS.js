@@ -27,9 +27,9 @@ function closeNav() {
 
   //reomve navbar entirely and then add it when I press on th sideMenuIcon again
   x.style.display = "none";
-
   document.getElementById("sideMenuIcon").style.display = "block";
-
+  //reloads the page so when I resize the page the nav menu display changes
+  location.reload();
 }
 
 // automatic slideshow
