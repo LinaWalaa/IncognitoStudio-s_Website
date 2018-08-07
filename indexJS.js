@@ -33,35 +33,43 @@ function closeNav() {
 }
 
 // automatic slideshow
+var slideIndex = 0;
+
 function showSlides() {
-  var slideIndex = 0;
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
+  var slides = document.getElementsByClassName("slides");
   var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
+
+  for (var i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
   slideIndex++;
+
   if (slideIndex > slides.length) {slideIndex = 1}
+
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].className.replace(" active-dot", "");
   }
+
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  dots[slideIndex-1].className += " active-dot";
+
+  setTimeout(showSlides, 3000); // Change image every 2 seconds
 }
 
 // not referenced by a function so I have to add it in the html file itself
 
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 function toggle_Dropdown(){
-  var dropdown = document.getElementsByClassName("drop_btn");
-  var i;
 
-  for (i = 0; i < dropdown.length; i++) {
+  var dropdown = document.getElementsByClassName("drop_btn");
+
+  for (var i = 0; i < dropdown.length; i++) {
+
     dropdown[i].addEventListener("click", function() {
       this.classList.toggle("active");
+
       var dropdownContent = this.nextElementSibling;
+
       if (dropdownContent.style.display === "block") {
         dropdownContent.style.display = "none";
       } else {

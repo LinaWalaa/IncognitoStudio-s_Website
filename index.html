@@ -16,7 +16,7 @@
   <script type="text/javascript" src="indexJS.js"> </script>
 
   <!-- Refer to the jQuery Library -->
-  <script type="text/javascript" src="jquery-1.8.3.js"></script>
+  <!-- <script type="text/javascript" src="jquery-1.8.3.js"></script> -->
 
   <!-- Page's title -->
   <link rel="icon" type="image/gif/png" href="img/logo/logo_bold.png">
@@ -29,7 +29,7 @@
 
     <!-- Site's Logo (left) -->
     <div id="site_logo">
-      <a href="index.html"><img src="img/logo/logo_bold.png" style="width: 90px; height: 90px;" alt="Site's Logo"></a>
+      <a href="index.html"><img src="img/logo/logo_bold.png" style="width: 90px; height: 90px; padding: 3px; padding-left: 6px;" alt="Site's Logo"></a>
     </div>
 
     <!-- at small screen: topnav will change to sidenav -->
@@ -71,11 +71,25 @@
 
   <header>
 
+    <!-- slideshow -->
+    <div class="slideshow-container">
+      <div class="slides fade"><img src="img/slideshow/img1.jpg" style="width: 100%;"></div>
+      <div class="slides fade"><img src="img/slideshow/img2.jpg" style="width: 100%;"></div>
+      <div class="slides fade"><img src="img/slideshow/img3.jpg" style="width: 100%;"></div>
+    </div>
+
+    <!-- dots under the slideshow -->
+    <div style="text-align: center; padding: 10px;">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <!-- <br/> -->
+
   </header>
 
   <article>
-    <div class="img_show_case">
-    </div>
 
     <div class="vip_links">
 
@@ -112,44 +126,8 @@
   </footer>
 
   <script>
-  // Adjust navbar according to the viewport automaically
-  /*
-  document ready function used to prevent conflict with other javascript libraries
-  that use the $ parameter
-  */
-  jQuery(document).ready(function($){
-    change_ViewPort();
-    $(window).on('resize', change_ViewPort());
-  });
-
-  function change_ViewPort(){
-    if($(window).width() <= 1100){
-      $("#navbar").removeClass("topnav");
-      $("#navbar").addClass("sidenav");
-      $("#sideMenuIcon").addClass("sideMenu-Icon");
-    }
-    else{
-      $("#navbar").removeClass("sidenav");
-      $("#navbar").addClass("topnav");
-      $("#sideMenuIcon").removeClass("sideMenu-Icon");
-    }
-  });
-
-
-  // $(window).resize( function () {
-  //   var viewportWidth = $(window).width();
-  //   if (viewportWidth <= 1100) {
-  //     $("#navbar").removeClass("topnav").addClass("sidenav");
-  //     $("#sideMenuIcon").addClass("sideMenu-Icon");
-  //   }else{
-  //     $("#navbar").removeClass("sidenav").addClass("topnav");
-  //     $("#sideMenuIcon").removeClass("sideMenu-Icon");
-  //   }
-  // });
-
-  </script>
-  <script>
   toggle_Dropdown();
+  showSlides();
   </script>
 
 </body>
