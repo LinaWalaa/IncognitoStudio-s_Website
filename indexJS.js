@@ -1,6 +1,8 @@
 function openNav() {
   var x = document.getElementById("navbar");
 
+  // x.style.position = "relative";
+  document.getElementById("nav").style.backgroundColor = "transparent"
   if (x.style.display === "none"){
     x.style.display = "block";
   }
